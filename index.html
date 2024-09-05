@@ -1,112 +1,130 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nomination Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-        }
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="number"],
-        input[type="date"],
-        input[type="tel"],
-        textarea,
-        input[type="file"] {
-            width: calc(100% - 20px);
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .radio-group {
-            margin-bottom: 15px;
-        }
-        .radio-group label {
-            display: inline-block;
-            margin-right: 10px;
-        }
-        .submit-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-        .submit-button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <center><h1>NOMINATION FORM</h1></center>
-    <form action="/submit" method="POST" enctype="multipart/form-data">
-        <label for="nominee_name">Name of Nominee:</label>
-        <input type="text" id="nominee_name" name="nominee_name" required>
+    <div class="container">
+        <h2>Nomination Form</h2>
+        <form>
+            <!-- Personal Information -->
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="marital-status">Marital Status:</label>
+                        <input type="text" id="marital-status" name="marital-status" required>
+                    </div>
+                </div>
+            </fieldset>
 
-        <label>Marital Status:</label>
-        <div class="radio-group">
-            <input type="radio" id="single" name="marital_status" value="Single">
-            <label for="single">Single</label>
-            <input type="radio" id="married" name="marital_status" value="Married">
-            <label for="married">Married</label>
-        </div>
+            <!-- Nominee Details -->
+            <fieldset>
+                <legend>Nominee Details</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nominee-name">Nominee Name:</label>
+                        <input type="text" id="nominee-name" name="nominee-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nominee-address">Full Permanent Address:</label>
+                        <textarea id="nominee-address" name="nominee-address" rows="2" required></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nominee-aadhar">Aadhar Number:</label>
+                        <input type="text" id="nominee-aadhar" name="nominee-aadhar" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nominee-relation">Relation with Subscriber:</label>
+                        <input type="text" id="nominee-relation" name="nominee-relation" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nominee-reason">Reason (if not a family member):</label>
+                        <textarea id="nominee-reason" name="nominee-reason" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="nominee-age">Age:</label>
+                        <input type="number" id="nominee-age" name="nominee-age" min="0" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nominee-share">Share Payable (%):</label>
+                        <input type="number" id="nominee-share" name="nominee-share" min="0" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nominee-contingency">Contingencies (invalidating nomination):</label>
+                        <textarea id="nominee-contingency" name="nominee-contingency" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="alt-person">Person to whom right passes if nominee predeceases:</label>
+                        <textarea id="alt-person" name="alt-person" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="minor-representative">Person to whom share is paid on behalf of minor:</label>
+                        <textarea id="minor-representative" name="minor-representative" rows="2"></textarea>
+                    </div>
+                </div>
+            </fieldset>
 
-        <label for="address">Address:</label>
-        <textarea id="address" name="address" rows="3" required></textarea>
+            <!-- Additional Information -->
+            <fieldset>
+                <legend>Additional Information</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="place">Place:</label>
+                        <input type="text" id="place" name="place" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="subscriber-details">Subscriber Details (Name, designation, office address, PEN):</label>
+                        <textarea id="subscriber-details" name="subscriber-details" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="account-no">Account Number:</label>
+                        <input type="text" id="account-no" name="account-no" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="witness1">Witness 1 (Name, Address, Aadhar Number):</label>
+                        <textarea id="witness1" name="witness1" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="witness2">Witness 2 (Name, Address, Aadhar Number):</label>
+                        <textarea id="witness2" name="witness2" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="countersignature">Countersignature by Head of Office (if applicable):</label>
+                        <textarea id="countersignature" name="countersignature" rows="2"></textarea>
+                    </div>
+                </div>
+            </fieldset>
 
-        <label for="aadhaar_number">Aadhaar Number:</label>
-        <input type="text" id="aadhaar_number" name="aadhaar_number" required>
-
-        <label for="relation_with_subscriber">Relation with Subscriber:</label>
-        <textarea id="relation_with_subscriber" name="relation_with_subscriber" rows="2"></textarea>
-
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required>
-
-        <label for="share_payable">Share Payable in Percentage:</label>
-        <input type="number" id="share_payable" name="share_payable" required>
-
-        <label for="place">Place:</label>
-        <textarea id="place" name="place" rows="1"></textarea>
-
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required>
-
-        <label for="signature">Signature (Upload):</label>
-        <input type="file" id="signature" name="signature" accept="image/*" required>
-
-        <label for="account_number">Account Number:</label>
-        <input type="text" id="account_number" name="account_number" required>
-
-        <label for="witness_name_1">Witness Name 1:</label>
-        <input type="text" id="witness_name_1" name="witness_name_1" required>
-
-        <label for="witness_address_1">Witness Address 1:</label>
-        <textarea id="witness_address_1" name="witness_address_1" rows="2"></textarea>
-
-        <label for="witness_signature_1">Witness Signature (Upload):</label>
-        <input type="file" id="witness_signature_1" name="witness_signature_1" accept="image/*">
-
-        <button type="submit" class="submit-button">Submit</button>
-    </form>
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
