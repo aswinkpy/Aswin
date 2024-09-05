@@ -6,14 +6,13 @@
     <title>Nomination Form</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Include jsPDF library -->
-   <!-- Include jsPDF library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 </head>
 <body>
     <div class="container">
         <h2>Nomination Form</h2>
-        <form id="nominationForm">
+        <form>
             <!-- Personal Information -->
             <fieldset>
                 <legend>Personal Information</legend>
@@ -52,15 +51,84 @@
                         <input type="text" id="nominee-relation" name="nominee-relation" required>
                     </div>
                 </div>
-                <!-- Add other form fields as in previous HTML code -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nominee-reason">Reason (if not a family member):</label>
+                        <textarea id="nominee-reason" name="nominee-reason" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="nominee-age">Age:</label>
+                        <input type="number" id="nominee-age" name="nominee-age" min="0" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nominee-share">Share Payable (%):</label>
+                        <input type="number" id="nominee-share" name="nominee-share" min="0" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nominee-contingency">Contingencies (invalidating nomination):</label>
+                        <textarea id="nominee-contingency" name="nominee-contingency" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="alt-person">Person to whom right passes if nominee predeceases:</label>
+                        <textarea id="alt-person" name="alt-person" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="minor-representative">Person to whom share is paid on behalf of minor:</label>
+                        <textarea id="minor-representative" name="minor-representative" rows="2"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Additional Information -->
+            <fieldset>
+                <legend>Additional Information</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="place">Place:</label>
+                        <input type="text" id="place" name="place" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="subscriber-details">Subscriber Details (Name, designation, office address, PEN):</label>
+                        <textarea id="subscriber-details" name="subscriber-details" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="account-no">Account Number:</label>
+                        <input type="text" id="account-no" name="account-no" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="witness1">Witness 1 (Name, Address, Aadhar Number):</label>
+                        <textarea id="witness1" name="witness1" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="witness2">Witness 2 (Name, Address, Aadhar Number):</label>
+                        <textarea id="witness2" name="witness2" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="countersignature">Countersignature by Head of Office (if applicable):</label>
+                        <textarea id="countersignature" name="countersignature" rows="2"></textarea>
+                    </div>
+                </div>
             </fieldset>
 
             <!-- Submit Button -->
-            <button type="button" onclick="generatePDF()">Generate PDF</button>
+            <button type="submit">Submit</button>
         </form>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
+
 
